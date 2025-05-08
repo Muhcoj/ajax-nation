@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<div class="wrapper">
+  <div class="content-layout">
+    <div class="main-content">
+      {% assign latest_post = site.posts | first %}
+      {% if latest_post %}
+        {% include featured-news-item.html item=latest_post %}
+      {% else %}
+        <p>No featured news available at the moment.</p>
+      {% endif %}
+
+      <h1 class="page-title">Latest News</h1>
+      <div class="news-grid">
+        {% assign recent_posts = site.posts | where_exp:"item", "item.url != latest_post.url" | limit: 4 %}
+        {% if recent_posts.size > 0 %}
+          {% for post in recent_posts %}
+            {% include news-item-condensed.html post=post %}
+          {% endfor %}
+        {% else %}
+            {% if latest_post and site.posts.size == 1 %}
+                <p>No other news to display right now.</p>
+            {% else %}
+                <p>No news posts available yet. Check back soon!</p>
+            {% endif %}
+        {% endif %}
+      </div>
+      {% if site.posts.size > 1 %}
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="{{ 
+        '/blog/
+        ' | relative_url }}" class="button">View All News</a>
+      </div>
+      {% endif %}
+    </div>
+    <aside class="sidebar" role="complementary">
+      {% include live-ticker.html %}
+      {% include sidebar.html %}
+    </aside>
+  </div>
+</div>

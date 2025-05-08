@@ -1,0 +1,16 @@
+---
+# Front matter tells Jekyll to process SCSS
+---
+
+@import "variables";
+@import "base";
+@import "layout";
+@import "header";
+@import "navigation";
+@import "footer";
+@import "live-ticker";
+@import "news";
+@import "sidebar";
+@import "forms";
+@import "responsive";
+

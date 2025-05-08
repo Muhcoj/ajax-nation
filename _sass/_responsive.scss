@@ -1,0 +1,125 @@
+@import "variables";
+
+// Responsive adjustments based on pasted_content.txt and general best practices
+
+// Tablet and larger phone landscape (e.g., > 600px and < 900px)
+@media screen and (max-width: 900px) {
+  .content-layout {
+    grid-template-columns: 1fr; // Stack main content and sidebar
+  }
+
+  .sidebar {
+    margin-top: $base-spacing-unit * 2;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); // Adjust footer columns
+  }
+
+  .featured-image {
+    height: 350px; // Adjust featured image height
+  }
+
+  .featured-title {
+    font-size: 24px;
+  }
+}
+
+// Smaller devices (e.g., < 600px)
+@media screen and (max-width: 600px) {
+  .site-nav {
+    position: relative; // For absolute positioning of nav-links
+  }
+
+  .nav-trigger-label {
+    display: block; // Show hamburger icon label
+    padding: $base-spacing-unit * 0.5;
+  }
+
+  .menu-icon {
+    display: block; // Show hamburger icon
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; // Position below the header part containing the icon
+    right: 0;
+    background-color: $dark-gray;
+    width: 200px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    border-radius: 0 0 $base-border-radius $base-border-radius;
+    padding: ($base-spacing-unit * 0.66) 0;
+    flex-direction: column;
+    z-index: 999; // Ensure it's above other content but below header
+  }
+
+  #nav-trigger:checked ~ .nav-links {
+    display: block;
+  }
+
+  .page-link {
+    padding: ($base-spacing-unit * 0.8) ($base-spacing-unit * 1.33); // Approx 12px 20px
+    margin: 0;
+    border-radius: 0;
+    display: block;
+    border-bottom: 1px solid $light-gray; // Separator for links
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &.active {
+      &::after {
+        left: 0;
+        right: auto;
+        width: 3px;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  .news-item,
+  .news-item-condensed {
+    grid-template-columns: 1fr; // Stack image and content
+  }
+
+  .news-image-container {
+    width: 100%;
+    height: 200px; // Adjust image height for stacked layout
+  }
+
+  .news-content {
+    padding: $base-spacing-unit;
+  }
+
+  .featured-image {
+    height: 250px;
+  }
+
+  .featured-content {
+    padding: ($base-spacing-unit * 2) $base-spacing-unit $base-spacing-unit;
+  }
+
+  .featured-title {
+    font-size: 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr; // Stack all footer sections
+  }
+
+  .footer-section {
+    text-align: center;
+    .social-links {
+        justify-content: center;
+    }
+  }
+  
+  .post-title {
+    font-size: 32px;
+  }
+}
+

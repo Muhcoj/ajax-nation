@@ -1,0 +1,92 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Ajax News
+email: your-email@example.com
+description: >-
+  The latest Ajax news, transfers, match reports and opinions for fans.
+baseurl: "/ajax-nation" # the subpath of your site, e.g. /blog. If hosted on GitHub Pages at <username>.github.io, this is "". If at <username>.github.io/repo-name, this is "/repo-name".
+url: "https://Muhcoj.github.io" # the base hostname & protocol for your site, e.g. http://example.com. For GitHub Pages, it will be something like https://username.github.io
+
+author: "Ajax Fan Admin"
+twitter_username: AjaxFanClub # Example
+github_username:  YourGitHubUsername # Replace with user's GitHub username
+
+logo: "/assets/images/ajax-logo-placeholder.png" # Path to your site logo
+
+# Placeholder images (optional, for default images in includes)
+placeholder_images:
+  featured: "/assets/images/featured-placeholder.png"
+  thumbnail: "/assets/images/news-item-placeholder.png"
+
+# Build settings
+markdown: kramdown
+theme: null # We are using a custom theme, not minima or other gem-based themes
+plugins:
+  - jekyll-feed
+  # - jekyll-seo-tag # Recommended for better SEO
+  # - jekyll-sitemap # Recommended for sitemap generation
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - .gitignore
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed # or :expanded for debugging
+
+# Collections (if any, e.g., for ticker items if not purely JS driven)
+# collections:
+#   ticker_items:
+#     output: true
+#     permalink: /ticker/:name/
+
+# Default front matter (optional)
+# defaults:
+#   - scope:
+#       path: ""
+#       type: "posts"
+#     values:
+#       layout: "post"
+#       show_ticker: false
+#   - scope:
+#       path: ""
+#       type: "pages"
+#     values:
+#       layout: "page"
+
+# For jekyll-feed plugin
+feed:
+  path: feed.xml
+
+# If using jekyll-paginate or jekyll-paginate-v2 for blog pagination (optional)
+# paginate: 5
+# paginate_path: "/blog/page:num/"
+
+# Show powered by Manus (optional)
+show_powered_by: true
+

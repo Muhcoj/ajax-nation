@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<div class="wrapper">
+  <div class="content-layout">
+    <article class="main-content post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+        <p class="post-meta">
+          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+          {%- if page.author -%}
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              • By <span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span>
+            </span>
+          {%- elsif site.author -%}
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              • By <span class="p-author h-card" itemprop="name">{{ site.author | escape }}</span>
+            </span>
+          {%- endif -%}
+        </p>
+        {%- if page.categories.size > 0 -%}
+          <div class="post-categories">
+            Categories: 
+            {% for category in page.categories %}
+              <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category | escape }}</a>{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </div>
+        {%- endif -%}
+      </header>
+
+      {% if page.image %}
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="post-featured-image" itemprop="image">
+      {% endif %}
+
+      <div class="post-content e-content" itemprop="articleBody">
+        {{ content }}
+      </div>
+
+      {% if page.show_ticker %}
+        <section class="post-live-ticker" aria-labelledby="live-ticker-heading-post">
+          <h2 id="live-ticker-heading-post" class="sr-only">Live Ticker for this event</h2>
+          {% include live-ticker.html %}
+        </section>
+      {% endif %}
+
+      <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+    </article>
+    
+    <aside class="sidebar" role="complementary">
+      {% unless page.show_ticker %}{# Avoid duplicate ticker if already shown in post #}
+        {% include live-ticker.html %}
+      {% endunless %}
+      {% include sidebar.html %}
+    </aside>
+  </div>
+</div>

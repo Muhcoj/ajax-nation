@@ -1,0 +1,29 @@
+{% assign post_item = include.post %}
+{% if post_item %}
+<article class="news-item-condensed">
+  <a href="{{ post_item.url | relative_url }}" class="news-item-link">
+    <div class="news-image-container">
+      {% if post_item.image %}
+        <img src="{{ post_item.image | relative_url }}" alt="{{ post_item.title | escape }}" class="news-image">
+      {% else %}
+        <img src="{{ site.placeholder_images.thumbnail | default: 
+        '/assets/images/news-item-placeholder.png
+        ' | relative_url }}" alt="Placeholder image for {{ post_item.title | escape }}" class="news-image">
+      {% endif %}
+    </div>
+    <div class="news-content">
+      {% if post_item.categories.size > 0 %}
+        <span class="news-category">{{ post_item.categories | first | escape }}</span>
+      {% endif %}
+      <h3 class="news-title">{{ post_item.title | escape }}</h3>
+      <div class="news-meta">
+        <time datetime="{{ post_item.date | date_to_xmlschema }}">{{ post_item.date | date: "%b %-d, %Y" }}</time>
+      </div>
+      {% if post_item.excerpt %}
+        <p class="news-excerpt">{{ post_item.excerpt | strip_html | truncatewords: 15 }}</p>
+      {% endif %}
+      <span class="read-more-link">Read more...</span>
+    </div>
+  </a>
+</article>
+{% endif %}

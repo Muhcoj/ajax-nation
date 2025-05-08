@@ -1,0 +1,28 @@
+{% assign post_item = include.item %}
+{% if post_item %}
+<article class="featured-news">
+  <a href="{{ post_item.url | relative_url }}" aria-label="Read more about {{ post_item.title | escape }}">
+    {% if post_item.image %}
+      <img src="{{ post_item.image | relative_url }}" alt="{{ post_item.title | escape }}" class="featured-image">
+    {% else %}
+      <img src="{{ 
+      site.placeholder_images.featured | default: 
+      '/assets/images/featured-placeholder.png
+      ' | relative_url }}" alt="Placeholder image for {{ post_item.title | escape }}" class="featured-image">
+    {% endif %}
+    <div class="featured-content">
+      {% if post_item.categories.size > 0 %}
+        <span class="news-category">{{ post_item.categories | first | escape }}</span>
+      {% endif %}
+      <h2 class="featured-title">{{ post_item.title | escape }}</h2>
+      <div class="news-meta">
+        <time datetime="{{ post_item.date | date_to_xmlschema }}">{{ post_item.date | date: "%b %-d, %Y" }}</time>
+        {% if post_item.author %} • By {{ post_item.author | escape }}{% endif %}
+      </div>
+      {% if post_item.excerpt %}
+        <p class="news-excerpt">{{ post_item.excerpt | strip_html | truncatewords: 25 }}</p>
+      {% endif %}
+    </div>
+  </a>
+</article>
+{% endif %}

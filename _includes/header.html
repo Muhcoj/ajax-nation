@@ -1,0 +1,13 @@
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <div class="header-container">
+      <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
+        {% if site.logo %}
+          <img src="{{ site.logo | relative_url }}" alt="{{ site.title | escape }}" class="site-logo">
+        {% endif %}
+        {{ site.title | escape }}
+      </a>
+      {% include navigation.html %}
+    </div>
+  </div>
+</header>

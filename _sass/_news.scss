@@ -1,0 +1,151 @@
+@import "variables";
+
+// Featured News Section (typically on homepage or main news page)
+.featured-news {
+  position: relative;
+  margin-bottom: $base-spacing-unit * 2;
+  border-radius: $base-border-radius;
+  overflow: hidden;
+  background-color: $dark-gray; // Fallback if image doesn't load
+
+  a {
+    display: block;
+    color: $primary-white;
+    &:hover {
+        text-decoration: none;
+    }
+  }
+}
+
+.featured-image {
+  width: 100%;
+  height: 450px; // As per pasted_content.txt
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease-out;
+
+  .featured-news:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.featured-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: ($base-spacing-unit * 4) $base-spacing-unit $base-spacing-unit; // More top padding for gradient
+  background: linear-gradient(transparent, rgba(0,0,0,0.8) 50%);
+  color: $primary-white;
+}
+
+.featured-title {
+  font-size: 28px;
+  margin-bottom: $base-spacing-unit * 0.66;
+  line-height: 1.2;
+}
+
+// News Grid / List Styles
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr; // Default to single column, can be changed for wider views if needed
+  gap: $base-spacing-unit * 1.5;
+}
+
+.news-item-condensed, // Used for lists/grids of news
+.news-item {
+  display: grid;
+  grid-template-columns: 200px 1fr; // Image and content side-by-side
+  gap: $base-spacing-unit * 1.33;
+  margin-bottom: $base-spacing-unit * 1.33;
+  background-color: $light-gray;
+  border-radius: $base-border-radius;
+  overflow: hidden;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  color: $text-gray;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block; // Make the whole item clickable if desired, or just parts
+  }
+}
+
+.news-image-container {
+    width: 200px;
+    height: 150px; // Consistent height for images in list
+    overflow: hidden;
+}
+
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.news-content {
+  padding: $base-spacing-unit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-category {
+  background-color: $primary-red;
+  color: $primary-white;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  margin-right: $base-spacing-unit * 0.66;
+  display: inline-block; // So it doesn't take full width
+  margin-bottom: $base-spacing-unit * 0.5;
+}
+
+.news-title {
+  font-size: 18px;
+  line-height: 1.3;
+  margin-bottom: $base-spacing-unit * 0.5;
+  color: $primary-white;
+  font-weight: 600;
+
+  a {
+    color: $primary-white;
+    &:hover {
+        color: $primary-red;
+    }
+  }
+}
+
+.news-meta {
+  font-size: 12px;
+  color: $text-gray;
+  margin-bottom: $base-spacing-unit * 0.5;
+  display: flex;
+  align-items: center;
+}
+
+.news-excerpt {
+  font-size: 14px;
+  color: $text-gray;
+  line-height: 1.5;
+  // Clamp text to a few lines if desired, using JS or CSS line-clamp
+}
+
+.read-more-link {
+    color: $primary-red;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: auto; // Pushes to the bottom if news-content is flex
+    &:hover {
+        text-decoration: underline;
+    }
+}
+

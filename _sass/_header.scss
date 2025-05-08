@@ -1,0 +1,39 @@
+@import "variables";
+
+.site-header {
+  background-color: $dark-gray;
+  border-bottom: 3px solid $primary-red;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000; // Ensure header is above other content
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: ($base-spacing-unit * 0.66) 0; // Approx 10px if base is 15px
+  min-height: $header-height; // Ensure consistent height
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: $primary-white;
+
+  &:hover {
+    color: $primary-white; // Keep title color consistent on hover
+    text-decoration: none;
+  }
+}
+
+.site-logo {
+  height: 40px; // As per pasted_content.txt
+  margin-right: $base-spacing-unit * 0.66; // Approx 10px
+  vertical-align: middle;
+}
+

@@ -1,0 +1,31 @@
+<div class="live-ticker" id="live-ticker-component">
+  <div class="ticker-header">
+    <h3><span class="live-indicator" aria-hidden="true"></span>Live Updates</h3>
+    <button class="ticker-refresh-btn" id="ticker-refresh-btn" aria-label="Refresh live updates">Refresh</button>
+  </div>
+  <div class="ticker-container" id="ticker" aria-live="polite" aria-atomic="true">
+    <ul class="ticker-items">
+      {% comment %}
+      <!-- Static example item, if needed for initial display or fallback -->
+      <!-- 
+      <li class="ticker-item">
+        <span class="ticker-time">10:00 AM</span>
+        <span class="ticker-content">Welcome to the live ticker! Updates will appear here.</span>
+      </li>
+      -->
+      {% endcomment %}
+      {% if site.ticker_items and site.ticker_items.size > 0 %}
+        {% for item in site.ticker_items limit:5 %}{# Example: show initial items from _config or a data file #}
+          <li class="ticker-item">
+            <span class="ticker-time">{{ item.time | default: "Now" }}</span>
+            <span class="ticker-content">{{ item.content | escape }}</span>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li class="ticker-item ticker-item-empty" id="ticker-empty-message">
+            <span class="ticker-content">No live updates at the moment.</span>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

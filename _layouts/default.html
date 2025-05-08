@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <main class="page-content" aria-label="Content">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+    <script src="{{ '/assets/js/ticker.js' | relative_url }}"></script>
+    {% if site.extra_js %}
+      {% for js_file in site.extra_js %}
+        <script src="{{ js_file | relative_url }}"></script>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

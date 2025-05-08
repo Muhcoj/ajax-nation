@@ -1,0 +1,36 @@
+<nav class="site-nav" aria-label="Main navigation">
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="nav-trigger-label">
+    <span class="menu-icon">
+      <svg viewBox="0 0 24 24" width="24px" height="24px" aria-hidden="true" focusable="false">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+      <span class="sr-only">Toggle navigation</span>
+    </span>
+  </label>
+
+  <ul class="nav-links">
+    {% assign navigation_items = site.data.navigation | default: site.navigation %}
+    {% for item in navigation_items %}
+      <li>
+        <a class="page-link{% if page.url == item.url %} active{% endif %}" href="{{ item.url | relative_url }}">
+          {{ item.title | escape }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<style>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+</style>

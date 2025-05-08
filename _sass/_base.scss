@@ -1,0 +1,58 @@
+@import "variables";
+
+// Basic Resets
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Body Styling
+body {
+  font-family: $font-family-base;
+  color: $primary-white;
+  background-color: $dark-bg;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+// Typography Defaults
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: $base-spacing-unit;
+}
+
+// Link Styling
+a {
+  color: $primary-white;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $primary-red;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-left: $base-spacing-unit * 2; // Default margin for lists, can be overridden
+  list-style: none; // Common reset, specific list styles will be applied as needed
+}
+
+// Images
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+// Main element flex property
+main {
+    display: block; // HTML5 default
+    flex: 1; // Ensures main content area takes up available space, pushing footer down
+}
+

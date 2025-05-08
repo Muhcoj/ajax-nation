@@ -1,0 +1,36 @@
+---
+layout: page
+title: Blog Archive
+permalink: /blog/
+---
+
+<h1 class="page-title">All News &amp; Blog Posts</h1>
+
+<div class="news-grid">
+  {% if site.posts.size > 0 %}
+    {% for post in site.posts %}
+      {% include news-item-condensed.html post=post %}
+    {% endfor %}
+  {% else %}
+    <p>No posts found. Check back soon!</p>
+  {% endif %}
+</div>
+
+{% comment %}
+<!-- Basic Pagination (Optional, can be enhanced with plugins like jekyll-paginate-v2) -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous disabled">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next</a>
+  {% else %}
+    <span class="next disabled">Next</span>
+  {% endif %}
+</div>
+{% endif %}
+{% endcomment %}

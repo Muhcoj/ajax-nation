@@ -1,0 +1,117 @@
+@import "variables";
+
+// Wrapper for main content
+.wrapper {
+  max-width: 1240px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $base-spacing-unit;
+  padding-left: $base-spacing-unit;
+}
+
+// Main content layout grid (2 columns: main content and sidebar)
+.content-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr; // Default for wider screens
+  gap: $base-spacing-unit * 2;
+  margin-top: $base-spacing-unit * 2;
+}
+
+.main-content {
+  background-color: $dark-gray;
+  border-radius: $base-border-radius;
+  padding: $base-spacing-unit * 1.5;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+// Page specific title styling (e.g., for "Latest News", "About Us")
+.page-title {
+  font-size: 32px;
+  border-bottom: 2px solid $primary-red;
+  padding-bottom: $base-spacing-unit * 0.75;
+  margin-bottom: $base-spacing-unit * 1.5;
+  color: $primary-white;
+}
+
+// Post specific title styling
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: $primary-white;
+  margin-bottom: $base-spacing-unit * 0.5;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: $text-gray;
+  margin-bottom: $base-spacing-unit * 1.5;
+}
+
+.post-categories {
+    margin-bottom: $base-spacing-unit;
+    font-size: 14px;
+    color: $text-gray;
+    a {
+        color: $primary-red;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.post-featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: $base-border-radius;
+    margin-bottom: $base-spacing-unit * 1.5;
+}
+
+.post-content {
+  margin-bottom: $base-spacing-unit * 2;
+  h2 {
+    font-size: 28px;
+    margin-top: $base-spacing-unit * 2;
+    margin-bottom: $base-spacing-unit;
+    padding-bottom: $base-spacing-unit * 0.5;
+    border-bottom: 1px solid $border-color;
+  }
+  h3 {
+    font-size: 24px;
+    margin-top: $base-spacing-unit * 1.5;
+    margin-bottom: $base-spacing-unit * 0.75;
+  }
+  h4 {
+    font-size: 20px;
+    margin-top: $base-spacing-unit;
+    margin-bottom: $base-spacing-unit * 0.5;
+  }
+  p, ul, ol, blockquote {
+    margin-bottom: $base-spacing-unit;
+  }
+  ul, ol {
+    margin-left: $base-spacing-unit * 2;
+    list-style: disc; // Or as desired
+    li {
+        margin-bottom: $base-spacing-unit * 0.5;
+    }
+  }
+  blockquote {
+    border-left: 4px solid $primary-red;
+    padding-left: $base-spacing-unit;
+    color: $text-gray;
+    font-style: italic;
+  }
+  pre, code {
+    background-color: $light-gray;
+    border: 1px solid $border-color;
+    border-radius: $base-border-radius;
+    padding: $base-spacing-unit;
+    overflow-x: auto;
+  }
+  code {
+    padding: 0.2em 0.4em;
+    font-size: 90%;
+  }
+}
+

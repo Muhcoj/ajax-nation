@@ -1,0 +1,70 @@
+@import "variables";
+
+.contact-form {
+  max-width: 100%; // Take full width of its container
+}
+
+.form-group {
+  margin-bottom: $base-spacing-unit * 1.33;
+}
+
+label {
+  display: block;
+  margin-bottom: $base-spacing-unit * 0.5;
+  font-weight: 600;
+  color: $primary-white;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+textarea {
+  width: 100%;
+  padding: $base-spacing-unit * 0.8; // Approx 12px
+  background-color: $light-gray;
+  border: 1px solid $border-color;
+  border-radius: $base-border-radius;
+  color: $primary-white;
+  box-sizing: border-box; // Ensure padding and border don't increase width
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-red;
+  }
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+button[type="submit"],
+.button {
+  background-color: $primary-red;
+  color: $primary-white;
+  padding: ($base-spacing-unit * 0.8) ($base-spacing-unit * 1.33); // Approx 12px 20px
+  border: none;
+  border-radius: $base-border-radius;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($primary-red, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+

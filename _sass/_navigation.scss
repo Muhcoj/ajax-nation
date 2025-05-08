@@ -1,0 +1,67 @@
+@import "variables";
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-trigger-label {
+  display: none; // Hidden by default, shown in responsive.scss
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none; // Hidden by default, shown in responsive.scss
+  svg {
+    fill: $primary-white;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+#nav-trigger {
+  display: none; // Checkbox is visually hidden
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-link {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: ($base-spacing-unit * 0.66) $base-spacing-unit; // Approx 10px 15px
+  margin: 0 ($base-spacing-unit * 0.33); // Approx 5px
+  border-radius: 3px;
+  transition: all 0.2s;
+  color: $primary-white;
+  display: block; // For consistent padding and height
+
+  &:hover {
+    background-color: $light-gray;
+    color: $primary-white;
+    text-decoration: none;
+  }
+
+  &.active {
+    color: $primary-red;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: $base-spacing-unit;
+      right: $base-spacing-unit;
+      height: 3px;
+      background-color: $primary-red;
+    }
+  }
+}
+
+// Responsive navigation styles will be in _responsive.scss
+
