@@ -37,6 +37,9 @@ plugins:
   # - jekyll-seo-tag # Recommended for better SEO
   # - jekyll-sitemap # Recommended for sitemap generation
 
+include:
+  - assets/images/favicon.png
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
