@@ -41,7 +41,7 @@
   }
 
   .nav-links {
-    display: none;
+    display: none; // Hide by default
     position: absolute;
     top: 100%; // Position below the header part containing the icon
     right: 0;
@@ -54,8 +54,9 @@
     z-index: 999; // Ensure it's above other content but below header
   }
 
-  #nav-trigger:checked ~ .nav-links {
-    display: block;
+  // Show nav-links when .active class is present (toggled by JS)
+  .nav-links.active {
+    display: flex !important; // Use flex to maintain column direction, !important to ensure override
   }
 
   .page-link {
@@ -122,4 +123,3 @@
     font-size: 32px;
   }
 }
-
